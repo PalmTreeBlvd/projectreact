@@ -1,11 +1,13 @@
 import React from "react";
-import Hello from "./sayHello";
+import Tweet from "./Tweet";
 
 function App() {
   return (
-    <div>
-      <h1>This is the app component</h1>
-      <Hello />
+    <div className="app">
+      <Tweet name="Dev Ed" message="hello everyone" />
+      <Tweet name="Petah" message="hello everyone 2" />
+      <Tweet name="Whateva" message="hello everyone 3" />
+      <Tweet name="Kyle" message="hello everyone 4" />
     </div>
   );
 }
