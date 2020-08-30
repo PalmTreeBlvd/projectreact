@@ -2,12 +2,11 @@ import React from "react";
 // Importing the .css file so that css styling works
 import "./App.css";
 
-// className="tweet" refers to the tweet class in the App.css file.
-// The .css file handles the styling, and using className here calls upon the .css file to make sure the styling is applied.
-// <div className="tweet"></div>
-
-// type className="tweet" so that the class in App.css works.
+// type className="tweet" so that the css class in App.css works. css handles the styling.
 // (where it says .tweet {} in App.css))
+
+// props is passed as a parameter but we are using object destructuring to destructure its properties.
+// so instead of (props) we see ({name, message}).
 function Tweet({ name, message }) {
   return (
     <div className="tweet">

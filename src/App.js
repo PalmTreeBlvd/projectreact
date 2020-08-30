@@ -3,28 +3,38 @@ import React, { useState } from "react";
 import Tweet from "./Tweet";
 
 function App() {
+  // Simple objects. These values aren't used but I'm leaving here as examples.
+  // To check a value, use if (isRed)
+  // To set a value, you use it as a function: setRed(true)
   const [isRed, setRed] = useState(false);
   const [count, setCount] = useState(0);
-  // ** How you would use an object holding multiple properties **
-  // const [user, setUser] = useState({
-  //   name: "Ed",
-  //   age: 25,
-  //   posts: ["my first post", "my lovely summer"],
-  // });
 
+  // Example for how to change values
   const increment = () => {
     setCount(count + 1);
     setRed(!isRed);
   };
 
+  // Complex object. Each value in this array creates a new instance of tweet.js.
+  // Here would be a good place to set values based on an api call.
+  const [users, setUsers] = useState([
+    { name: "Ed", message: "Hello there" },
+    { name: "John", message: "I am John Snow" },
+    { name: "Traversy", message: "I am awesome" },
+  ]);
+
+  // users.map() maps each value in the array to its own instance of Tweet.
+  // So users[0] = Tweet, users[1] = Tweet, etc for each value in the array.
+  // -------
+  // tweet.js calls name and message, and that is how values know to render.
   return (
     <div className="app">
-      <h1 className={isRed ? "red" : ""}>Change my color!</h1>
-      <button onClick={increment}>Increment</button>
-      <h1>{count}</h1>
+      {users.map((user) => (
+        <Tweet name={user.name} message={user.message} />
+      ))}
     </div>
   );
 }
 
-// Export file for other file (in this case index.js) to import it
+// Export file so that another file (in this case index.js) can import it.
 export default App;
